@@ -7,6 +7,7 @@ grep "=" ~/.config/hypr/wallust/wallust-hyprland.conf | sed 's/ = rgb(\(.*\))/: 
 #↳ en español lo que hace es que busca el archivo en tus config de color y una vez lo encuentra a partir de eso va a crear un archico copia de ese en la carpeta de este proyecto y le da el nombre de colors.scss por si le quieres meter mano ahi puedes buscarlo
 
 #para que no se pierda playerctl y cambie entre web y nativo uso esto
+#killall eww 2>/dev/null
 #playerctld daemon &
  if ! pidof eww > /dev/null; then
    # ↳ esta madre lo que hace es que revisa si el eww esta chambeando

@@ -1,6 +1,7 @@
 /*Estilos de la ventana */
-//@import "colors.scss";
-
+@import "colors.scss";
+/*est amadre de importacion que hce es por que uso wayland para
+ que segun el wallpaper que tenga se pona un color*/
 * {
   background-color:transparent;
   padding:0;
@@ -8,26 +9,26 @@
 }
 
 .player-container{
-  background-color: #1e1e2e;
-  color: #cdd6f4;
-  //background-color: $background; 
-  //color: $foreground;
+  //background-color: #1e1e2e;
+  //color: #cdd6f4;
+  background-color: $color1;
+  color: $color3;
   padding: 10px;
   border-radius: 10px;
-  border : 2px solid #89b4fa;
-  //border: 2px solid $color4;
+  //border : 2px solid #89b4fa;
+  border: 2px solid $color4;
 }
 
 .title{
   font-weight: bold;
   font-size: 1.1em;
-  //color: $color7;
+  color: $color7;
 }
 
 .artist{
   font-size: 0.9em;
-  color: #a6adc8;
-  //color: $color8;
+  color: $color8;
+  //color: #a6adc8;
 }
 
 .album-art{
@@ -42,18 +43,19 @@
 .btn{
   min-width: 30px;
   min-height: 30px;
-  color: #a3a3f7;
-  //color: $foreground;
+  //color: #a3a3f7;
+  color: $foreground;
   background-color: transparent;
   background-image: none;
-  border: 1px solid #89c4fa;
+  //border: 1px solid #89c4fa;
+  border: 1px solid $color1;
   box-shadow: none;
 }
 
 .btn:hover {
-  color: #cba6f7;
-  background-color: rgba(255, 255, 255, 0.05);
-  //color: $background;
-  //background-color: $color4;
+  //color: #cba6f7;
+  //background-color: rgba(255, 255, 255, 0.05);
+  color: $background;
+  background-color: $color4;
   border-radius: 5px;
 }

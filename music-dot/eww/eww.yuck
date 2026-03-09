@@ -1,0 +1,36 @@
+;; Variables que escuchan al script de metadatos
+
+(deflisten music_data :initial '{"title": "Offline","artist": "Nada sonando...","status": "Stopped"}'
+  "bash ../scripts/get_metadata.sh")
+
+;; El coso que defwidget del reproductor
+(defwidget Reproductor_musica []
+  (box :class "player-container" :orientation "h" :space-evenly false
+  (label :class "music-icon" :text "ᯓ𝄞 ˎˊ˗")
+
+  (box :orientation "v" :class "music-info"
+    (label :class "title" :text {music_data.title} :limit-width 20)
+    (label :class "artist" :text {music_data.artist} :limit-width 20)
+
+    (box :orientation "h" :halign "center" :spacing 10
+      (button :onclick "playerctl position 10-" "↻")
+      (button :onclick "playerctl previous" "◁ ")
+      (button :onclick "playerctl play-pause"
+        {music_data.status == "Playing" ? ">>" : "||"})
+      (button :onclick "playerctl next" "▷")
+      (button :onclick "playerctl position 10+" "↺")))))
+
+;;La cosa de Ventana para que se vea
+(defwindow music_win
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "20px"
+                      :width "300px"
+                      :height "80px"
+                      :anchor "top center")
+  :stacking "overlay"  ;; esto lo pone en la pantalla como de donde se vera al frente atras oh en la pantalla 
+  :exclusive false ;; esta wea dice Eh we soy un panel dame un espacion en pantalla true para hacerlo absoluto y false para que los atraviese y le vala verga y se vea encima
+(Reproductor_musica))
+
+;;ascii del reproductor ↻ ◁ || ▷ ↺
+

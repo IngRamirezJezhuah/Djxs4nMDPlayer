@@ -1,32 +1,33 @@
 ;; Variables que escuchan al script de metadatos
 
-(deflisten music_data :initial '{"title": "Offline","artist": "Nada sonando...","status": "Stopped"}'
+(deflisten music_data :initial '{"title": "Offline","artist": "Nada sonando...","status": "Stopped", "cover": "default.png"}'
   "bash ../scripts/get_metadata.sh")
 
 ;; El coso que defwidget del reproductor
 (defwidget Reproductor_musica []
-  (box :class "player-container" :orientation "h" :space-evenly false
-  (label :class "music-icon" :text "ᯓ𝄞 ˎˊ˗")
+  (box :class "player-container" :orientation "h" :space-evenly false :spacing 15
+  (box :class "album-art" :style "background-image: url('${music_data.cover}');")
 
-  (box :orientation "v" :class "music-info"
-    (label :class "title" :text {music_data.title} :limit-width 20)
-    (label :class "artist" :text {music_data.artist} :limit-width 20)
-
+  (box :orientation "v" :class "music-info" :valign "center"
+    (label :class "title" :text {music_data.title} :limit-width 25)
+    
+    (label :class "artist" :text {music_data.artist} :limit-width 25)
+;; Controles ascii
     (box :orientation "h" :halign "center" :spacing 10
-      (button :onclick "playerctl position 10-" "↻")
-      (button :onclick "playerctl previous" "◁ ")
-      (button :onclick "playerctl play-pause"
-        {music_data.status == "Playing" ? ">>" : "||"})
-      (button :onclick "playerctl next" "▷")
-      (button :onclick "playerctl position 10+" "↺")))))
+      (button :class "btn" :onclick "playerctl position 10-" "↻")
+      (button :class "btn" :onclick "playerctl previous" "◁ ")
+      (button :class "btn"  :onclick "playerctl play-pause"
+        {music_data.status == "Playing" ? "||" : "▶"})
+      (button :class "btn"  :onclick "playerctl next" "▷")
+      (button :class "btn"  :onclick "playerctl position 10+" "↺")))))
 
 ;;La cosa de Ventana para que se vea
 (defwindow music_win
   :monitor 0
   :geometry (geometry :x "0%"
                       :y "20px"
-                      :width "300px"
-                      :height "80px"
+                      :width "500px"
+                      :height "220px"
                       :anchor "top center")
   :stacking "overlay"  ;; esto lo pone en la pantalla como de donde se vera al frente atras oh en la pantalla 
   :exclusive false ;; esta wea dice Eh we soy un panel dame un espacion en pantalla true para hacerlo absoluto y false para que los atraviese y le vala verga y se vea encima

@@ -1,6 +1,11 @@
 #!/bin/bash
+#traductor de los colores de wallus , es que uso hyprland
+sed 's/ = rgb(\(.*\))/: #\1;/g' ~/.config/hypr/wallust/wallust-hyprland.conf > "$(dirname "$0")/music-dot/eww/colors.scss"
 
-#Esta chingadera le da muerte a todo proceso viejo de eww
+#para que no se pierda playerctl y cambie entre web y nativo uso esto
+playerctld daemon &
+
+#Esta chingadera le da muerte a todos los procesos viejos de eww
 killall eww 2>/dev/null
 
 #la madre que levanta el daemon

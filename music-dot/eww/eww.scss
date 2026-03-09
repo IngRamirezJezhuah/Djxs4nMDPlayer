@@ -1,18 +1,59 @@
 /*Estilos de la ventana */
+//@import "colors.scss";
+
+* {
+  background-color:transparent;
+  padding:0;
+  margin:0;
+}
 
 .player-container{
   background-color: #1e1e2e;
   color: #cdd6f4;
+  //background-color: $background; 
+  //color: $foreground;
   padding: 10px;
+  border-radius: 10px;
   border : 2px solid #89b4fa;
+  //border: 2px solid $color4;
 }
 
 .title{
   font-weight: bold;
   font-size: 1.1em;
+  //color: $color7;
 }
 
-.artis{
+.artist{
   font-size: 0.9em;
   color: #a6adc8;
+  //color: $color8;
+}
+
+.album-art{
+  min-width: 15rem;
+  min-height: 15rem;
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-position: center;
+  border-radius: 10px;
+}
+
+.btn{
+  min-width: 30px;
+  min-height: 30px;
+  color: #a3a3f7;
+  //color: $foreground;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid #89c4fa;
+  box-shadow: none;
+}
+
+.btn:hover {
+  color: #cba6f7;
+  background-color: rgba(255, 255, 255, 0.05);
+  //color: $background;
+  //background-color: $color4;
+  border-radius: 5px;
 }

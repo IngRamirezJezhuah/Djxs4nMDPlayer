@@ -11,7 +11,7 @@
 .player-container{
   //background-color: #1e1e2e;
   //color: #cdd6f4;
-  background-color: $background;
+  background-color: rgba(43,43,43, 0.29);
   color: $color3;
   padding: 10px;
   border-radius: 10px;
@@ -27,7 +27,7 @@
 
 .artist{
   font-size: 0.9em;
-  color: $color8;
+  color: $color9;
   //color: #a6adc8;
 }
 
@@ -44,7 +44,7 @@
   min-width: 30px;
   min-height: 30px;
   //color: #a3a3f7;
-  color: $foreground;
+  color: $background;
   background-color: transparent;
   background-image: none;
   //border: 1px solid #89c4fa;

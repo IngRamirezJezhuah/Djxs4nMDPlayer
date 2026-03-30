@@ -12,19 +12,25 @@
   (box :class "album-art" :style "background-image: url('${music_data.cover}');")
 
 ;la informacion de la musica 
-  (box :orientation "v" :class "music-info" :valign "center"
+  (box :orientation "v" :class "music-info" :valign "center" :space-evenlyfalse :spacing 15
     (label :class "title" :text {music_data.title} :limit-width 25)  
     (label :class "artist" :text {music_data.artist} :limit-width 25)
 
 ;; Esta es la barra de progreso y cava
-    (overlay :class "progress-overlay"
-      (label :class "cava-bars" :text cava_data :halign "center")
-      (scale :class "progress-slider"
-             :min 0
-             :max {music_data.length > 0 ? music_data.length : 100}
-             :value {music_data.position != "" ? music_data.position : 0}
-             :onchange "playerctl position {}")
-    )
+    ;;(overlay :class "progress-overlay"
+      ;;(label :class "cava-bars" :text cava_data :halign "center")
+      ;;(scale :class "progress-slider"
+             ;;:min 0
+             ;;:max {music_data.length > 0 ? music_data.length : 100}
+             ;;:value {music_data.position != "" ? music_data.position : 0}
+             ;;:onchange "playerctl position {}")
+    ;;)
+
+    (scale :class "progress-slider"
+           :min 0
+           :max {music_data.lengt > 0 ? music_data.length : 100}
+           :value {music_data.position != "" ? music_data.position : 0}
+           :onchange "playerctl position {}")
 
 ;; Controles ascii
     (box :orientation "h" :halign "center" :spacing 10
@@ -33,7 +39,11 @@
       (button :class "btn"  :onclick "playerctl play-pause"
         {music_data.status == "Playing" ? "||" : "▶"})
       (button :class "btn"  :onclick "playerctl next" "▷")
-      (button :class "btn"  :onclick "playerctl position 10+" "↺")))))
+      (button :class "btn"  :onclick "playerctl position 10+" "↺"))
+      (label :class "cava-bars" :text cava_data :halign "center")
+    )
+  )
+)
 
 ;;La cosa de Ventana para que se vea
 (defwindow music_win

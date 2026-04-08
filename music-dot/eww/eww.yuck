@@ -26,11 +26,11 @@
              ;;:onchange "playerctl position {}")
     ;;)
 
-    (scale :class "progress-slider"
-           :min 0
-           :max {music_data.lengt > 0 ? music_data.length : 100}
-           :value {music_data.position != "" ? music_data.position : 0}
-           :onchange "playerctl position {}")
+   ;; (scale :class "progress-slider"
+          ;; :min 0
+          ;; :max {music_data.lengt > 0 ? music_data.length : 100}
+          ;; :value {music_data.position != "" ? music_data.position : 0}
+          ;; :onchange "playerctl position {}")
 
 ;; Controles ascii
     (box :orientation "h" :halign "center" :spacing 10

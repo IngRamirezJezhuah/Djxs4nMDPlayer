@@ -6,6 +6,9 @@
 
 > [!Note]
 > Trabajano en ello...
-> proximamente lo documentare
-> hehe salu2
-# Cocinando...
+> Actualizacion nos movemos a Tauri
+# Desarrollo orientado a Tauri
+
+Debido a las limitaciones del proyecto anterior opte por mudar el desarrollo del proyecto a algo mas actualizado y que va a mejorar la experiencia de usuario asi como de los viusales de este
+
+

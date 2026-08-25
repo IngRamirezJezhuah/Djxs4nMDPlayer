@@ -11,4 +11,11 @@
 
 Debido a las limitaciones del proyecto anterior opte por mudar el desarrollo del proyecto a algo mas actualizado y que va a mejorar la experiencia de usuario asi como de los viusales de este
 
-
+```rust
+[dependencies]
+tauri = { version = "2.0", features = [] }
+cpal = "0.18.2"
+rustfft = "6.4.1"
+num-complex = "0.4.6"
+serde = { version = "1.0.229", features = ["derive"] }
+```

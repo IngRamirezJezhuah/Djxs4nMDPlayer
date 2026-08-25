@@ -12,13 +12,90 @@ body {
     user-select: none;
 }
 
+/* Vista de las caratulas */
+.cont{
+    display: flex;
+    align-items: center;
+    margin: 2rem 2rem 3rem 2rem;
+}
+
+.cover{
+    position: relative;
+    margin: 1rem 1rem 1rem 0 ;
+    border-radius: 1.5rem;
+    height: 45vh;
+    width: 20vw;
+}
+
+.circulo {
+    margin: 0 0 0 2rem;
+    width: 8vw;
+    height: 30vh;
+    background: #241616;
+    border-radius: 20rem 0 0 20rem;
+}
+
+.port-giratorio{
+    margin-top: 6vh;
+    margin-left: 3vw;
+    height: 18.5vh;
+    width: 10vw;
+    border-radius: 20rem 20rem; 
+    animation: girar 3s linear infinite;
+}
+
+.port-giratorio::after{
+    height: 30vh;
+    width: 16vw;
+    border-radius: 20rem 20rem; 
+    animation: girar 3s linear infinite;
+}
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*  Botones  */
+.btn-cont{
+    display:block;
+    align-items: center;
+    margin: 2rem;
+}
+
 .btn{
+    cursor: pointer;
+    color: rgb(255, 255, 255);
     background: rgba(19, 15, 15, 0.556);
-    padding: 2vh 2vw;
+    text-align: center;
+    font-size: 2.5vh;
+    height: 10vh;
+    width: 6vw;
+    margin: 2px;
+}
+
+.btn-trsp{
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background: transparent;
+    text-align: center;
+    font-size: 2.5vh;
+    height: 10vh;
+    width: 6vw;
+    margin: 2px;
+
 }
 
 .btn:hover{
     background: rgba(39, 29, 29, 0.578);
+}
+
+.btn-trsp:hover{
+    background: rgba(39, 29, 29, 0.144);
 }
 
 /* Animacion cargando */

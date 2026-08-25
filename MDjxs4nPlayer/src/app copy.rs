@@ -66,30 +66,3 @@ pub fn App() -> impl IntoView {
         </main>
     }
 }
-
-/// Documentation for [`Mdplayer`]
-#[component]
-pub fn Mdplayer() -> impl IntoView {
-
-    view! {
-        <body>
-            <div>
-            <div>
-                <button class="btn">"↻"</button>
-                <button class="btn">"◀" </button>
-                <button class="btn">"▐▐"</button>
-                <button class="btn">"▷"</button>
-                <button class="btn">"▶"</button>
-                <button class="btn">"↺"</button>
-            </div>
-                
-                <div id="contenedor">
-                    <div  class="contenedor-loader">
-                        <div class="loader"></div>
-                    </div>
-                </div>
-                
-            </div>
-        </body>
-    }
-}

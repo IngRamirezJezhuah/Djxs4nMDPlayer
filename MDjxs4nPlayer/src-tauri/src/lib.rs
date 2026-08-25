@@ -8,7 +8,10 @@ fn greet(name: &str) -> String {
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
+        //en la variable de aqui abajo se importan mis funciones
         .invoke_handler(tauri::generate_handler![greet])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
+
+// mis cosas del backend se llamaran desde aqui

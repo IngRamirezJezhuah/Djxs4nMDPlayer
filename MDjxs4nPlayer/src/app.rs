@@ -158,16 +158,19 @@ pub fn Mdplayer() -> impl IntoView {
                     </button>
                     <button class="btn-trsp" on:click=next_track>"▶"</button>
                     <button class="btn-trsp" on:click=seek(10.0)>"10s ↻"</button>
-                    <div>"----- barra tiempo ---"</div>
+                    <div>"----------------"</div>
+                    //<progress value= "25" max= "100">25%</progress>
+                    <progress max="100">25%</progress>
                     <p>"..."</p>
                 </div>
             </div>
-                
+            /*
             <div id="contenedor">
                 <div  class="contenedor-loader">
                     <div class="loader"></div>
                 </div>
             </div>
+            */
         </div>
     }
 }

@@ -4,6 +4,7 @@ use std::sync::Mutex;
 use tauri::State;
 
 mod audio;
+mod music_player;
 use crate::audio::{EstadoReproductor, MusicaData};
 pub struct AppAudioState(pub Mutex<EstadoReproductor>);
 

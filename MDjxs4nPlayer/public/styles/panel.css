@@ -23,23 +23,23 @@ body {
     position: relative;
     margin: 1rem 1rem 1rem 0 ;
     border-radius: 1.5rem;
-    height: 45vh;
-    width: 20vw;
+    height: 20rem;
+    width: 16rem;
 }
 
 .circulo {
     margin: 0 0 0 2rem;
-    width: 8vw;
-    height: 30vh;
+    width: 8rem;
+    height:14rem;
     background: #241616;
     border-radius: 20rem 0 0 20rem;
 }
 
 .port-giratorio{
-    margin-top: 6vh;
-    margin-left: 3vw;
-    height: 18.5vh;
-    width: 10vw;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    height: 10rem;
+    width: 10rem;
     border-radius: 20rem 20rem; 
     animation: girar 3s linear infinite;
 }

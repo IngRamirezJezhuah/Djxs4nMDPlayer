@@ -1,5 +1,6 @@
 use std::process::Command;
 use serde::{Deserialize, Serialize};
+use tauri::ipc::CommandArg;
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct MusicaData {
@@ -7,6 +8,8 @@ pub struct MusicaData {
     pub artist: String,
     pub cover_url: String,
     pub status: String,
+    pub position: Option<u64>,
+    pub length: Option<u64>,
 }
 
 pub struct EstadoReproductor;
@@ -52,27 +55,35 @@ impl EstadoReproductor {
 
     /// Extrae metadatos actuales usando playerctl (Título, Artista, Portada)
     pub fn sacar_metadata() -> MusicaData {
-        let title = Self::ejecutar_playerctl_format("{{title}}")
-            .unwrap_or_else(|| "Nada sonando...".to_string());
-        
-        let artist = Self::ejecutar_playerctl_format("{{artist}}")
-            .unwrap_or_else(|| "Offline".to_string());
-        
-        let cover_url = Self::ejecutar_playerctl_format("{{mpris:artUrl}}")
-            .unwrap_or_else(|| "/public/cover.png".to_string());
+        if let Ok(output) = Command::new("bash").arg("./get_metadata.sh").output() {
+            if output.status.success() {
+                if let Ok(data) = serde_json::from_slice::<MusicaData>(&output.stdout){
+                    return data;
+                }
+            }
+        }
 
-        let status = Self::obtener_estado_reproduccion();
-
-        MusicaData {
-            title,
-            artist,
-            cover_url,
-            status,
+        MusicaData { 
+            title: "Nada sonando...".to_string(),
+            artist: "Offline".to_string(), 
+            cover_url: "/public/cover.png".to_string(), 
+            status: "Stopped".to_string(), 
+            position: Some(0), 
+            length: Some(100), 
         }
     }
 
     fn obtener_estado_reproduccion() -> String {
-        Self::ejecutar_playerctl_format("{{status}}").unwrap_or_else(|| "Stopped".to_string())
+        //Self::ejecutar_playerctl_format("{{status}}").unwrap_or_else(|| "Stopped".to_string())
+        let output = Command::new("playerctl")
+        .arg(["status"])
+        .output();
+
+        if let Ok(out) = output{
+            String::from_utf16_lossy(&out.stdout).trim().to_string()
+        } else {
+            "Stopped".to_string()
+        }
     }
 
     fn ejecutar_playerctl_format(format_str: &str) -> Option<String> {
